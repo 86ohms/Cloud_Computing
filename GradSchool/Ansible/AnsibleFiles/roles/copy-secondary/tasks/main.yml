@@ -1,0 +1,6 @@
+---
+  # Write config file
+- name: Copy config file
+  copy:
+    src: mongo.conf
+    dest: /etc/mongo.conf

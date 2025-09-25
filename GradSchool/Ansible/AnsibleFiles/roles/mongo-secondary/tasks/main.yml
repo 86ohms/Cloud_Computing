@@ -1,0 +1,20 @@
+---
+
+- name: Deploy Mongo2 Container
+  docker_container:
+    image: "{{ mongo_container_image }}:{{mongo_container_image_tag}}"
+    name: "{{ secondary_container_name2 }}"
+    state: started
+    auto_remove: true
+    ports:
+      - "{{ mongo_secondary_port2 }}:{{ mongo_internal_port }}"
+
+- name: Deploy Mongo3 Container
+  docker_container:
+    image: "{{ mongo_container_image }}:{{mongo_container_image_tag}}"
+    name: "{{ secondary_container_name3 }}"
+    state: started
+    auto_remove: true
+    ports:
+      - "{{ mongo_secondary_port3 }}:{{ mongo_internal_port }}"
+  

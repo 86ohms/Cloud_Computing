@@ -1,0 +1,26 @@
+#General Variables
+mongo_container_image: mongo
+mongo_container_image_tag: 4
+mongo_replSet: "rs0"
+mongo_internal_port: 27017
+ansible_python_interpreter: /usr/bin/python3
+
+# #mongo2 variables
+# secondary_container_name2: mongo2
+# mongo_secondary_port2: 30002
+
+# #mongo3 variables
+# secondary_container_name3: mongo3
+# mongo_secondary_port3: 30003
+
+# primary_container_name: mongo1
+# mongo_primary_port: 30001
+
+# #mongo2 variables
+# secondary_container_name2: mongo2
+# mongo_secondary_port2: 30002
+
+# #mongo3 variables
+# secondary_container_name3: mongo3
+# mongo_secondary_port3: 30003
+

@@ -1,0 +1,6 @@
+---
+- name: copy master script
+  template: src=master.j2 dest=/tmp/master.j2 
+
+- name: wait for host to become primary
+  shell: mongo < /tmp/master.j2

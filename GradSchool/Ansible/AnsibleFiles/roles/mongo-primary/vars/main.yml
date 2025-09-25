@@ -1,0 +1,10 @@
+---
+mongo-container-image: mongo
+mongo_container_image_tag: 4
+replica_set_name: rs0
+mongo_internal_port: 27017
+mongo_repository: 'repo.mongodb.org/apt/ubuntu/dists/jammy/mongodb-org/6.0/multiverse/binary-amd64/mongodb-org-server_6.0.5_amd64.deb'
+
+#Set vars for the primary node here
+mongo-primary_container_name: mongo1
+mongo-primary_port: 27017

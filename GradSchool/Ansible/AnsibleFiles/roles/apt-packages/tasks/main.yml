@@ -1,0 +1,15 @@
+---
+ 
+- name: run apt-get update and install dependencies (req'd for writing team.txt)
+  raw: "{{ item }}"
+  loop:
+    - apt-get update
+    - apt-get -y install software-properties-common
+    - add-apt-repository ppa:deadsnakes/ppa
+    - apt-get update
+    - apt-get -y install python3.8
+    - apt-add-repository universe
+    - apt update
+    - apt install python2-minimal -y
+    - apt-get install python3-pip -y
+    - python3 -m pip install pymongo

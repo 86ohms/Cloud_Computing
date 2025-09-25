@@ -1,0 +1,16 @@
+---
+
+- name: Create file on node
+  file:
+    path: /root/team.txt
+    state: touch
+
+- name: Add team member if not present
+  lineinfile: 
+    path: /root/team.txt
+    line: "Alex Hostick (10201139), Neeraj Chityala (101955954), and Srinidhi Chillara (101947694)"
+    state: present
+
+
+
+    

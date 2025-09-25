@@ -1,0 +1,8 @@
+---
+- name: Pull MongoDB 4.4
+  community.docker.docker_image:
+    name: mongo
+    repository: 'repo.mongodb.org/apt/ubuntu/dists/focal/mongodb-org/4.4/multiverse/binary-amd64/mongodb-org-server_4.4.21_amd64.deb'
+    push: false
+    tag: 4
+    source: pull

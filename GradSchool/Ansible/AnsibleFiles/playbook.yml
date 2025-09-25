@@ -1,0 +1,70 @@
+---
+- name: Download Mongo to local machine
+  hosts: localhost
+  become: true
+  roles:
+  - role: mongo-install
+
+- name: Start Primary Container
+  hosts: localhost
+  gather_facts: false
+  become: true
+  roles:
+  - role: mongo-primary
+
+- name: Start Secondary Containers
+  hosts: localhost
+  become: true
+  roles:
+  - role: mongo-secondary
+
+- name: Install Packages on Mongo Servers
+  hosts: mongo_servers
+  gather_facts: false
+  roles:
+  - role: apt-packages
+
+- name: Primary conf file
+  hosts: replica_primary
+  become: True
+  roles:
+  - role: copy-primary
+
+- name: Primary conf file
+  hosts: replica_secondary
+  become: True
+  roles:
+  - role: copy-secondary
+
+- name: Write Team Name
+  hosts: mongo_servers
+  become: true
+  roles:
+  - role: common
+
+  handlers:
+    - name: Restart Mongo Nodes
+      service:
+        name: mongod
+        state: restarted
+
+- name: Add Admin User
+  hosts: replica_primary
+  roles:
+  - role: wait_master
+  - role: mongo-Admin      
+
+- name: Configure Replica Set
+  hosts: replica_primary
+  become: true
+  become_method: sudo
+  roles:
+  - role: mongo-replica-init
+  - role: wait_master
+
+- name: Add other replicas
+  hosts: replica_secondary
+  become: true
+  roles:
+  - role: add-members
+  - role: mongo-users

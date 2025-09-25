@@ -1,0 +1,4 @@
+---
+#Set vars for the primary node here
+primary_container_name: mongo1
+mongo_primary_port: 30001

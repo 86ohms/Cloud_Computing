@@ -1,0 +1,7 @@
+---
+
+- name: copy initRS script
+  template: src=initRS.j2 dest=/tmp/initRS.j2
+
+- name: initiate replica set from first primary
+  shell: mongo < /tmp/initRS.j2

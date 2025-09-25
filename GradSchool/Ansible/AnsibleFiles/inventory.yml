@@ -1,0 +1,30 @@
+[mongo_main_server]
+mongo1 ansible_connection=docker ansible_user=root
+
+[mongo_secondaries_servers]
+mongo2 ansible_connection=docker ansible_user=root
+mongo3 ansible_connection=docker ansible_user=root
+
+[local]
+localhost ansible_connection=local
+
+[mongo_servers]
+mongo1
+mongo2
+mongo3
+
+[primary]
+mongo1 ansible_connection=docker ansible_user=root
+localhost
+
+[replica_primary]
+mongo1
+
+[replica_secondary]
+mongo2
+mongo3
+
+[secondary]
+mongo2
+mongo3
+localhost

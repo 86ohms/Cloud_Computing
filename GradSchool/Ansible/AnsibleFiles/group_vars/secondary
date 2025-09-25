@@ -1,0 +1,7 @@
+#mongo2 variables
+secondary_container_name2: mongo2
+mongo_secondary_port2: 30002
+
+#mongo3 variables
+secondary_container_name3: mongo3
+mongo_secondary_port3: 30003

@@ -1,0 +1,13 @@
+---
+
+- name: Deploy Mongo1 [Primary] Container
+  docker_container:
+    image: "{{ mongo_container_image }}:{{mongo_container_image_tag}}"
+    name: '{{ primary_container_name }}'
+    state: started
+    auto_remove: true
+    ports:
+      - "{{ mongo_primary_port }}:{{ mongo_internal_port }}"
+
+- name: copy mongo script
+  template: src=mongo.conf dest=/etc/mongo.conf 

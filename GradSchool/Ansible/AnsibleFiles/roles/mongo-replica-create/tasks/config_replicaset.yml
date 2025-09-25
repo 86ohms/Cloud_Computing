@@ -1,0 +1,28 @@
+---
+- name: Copy the initialization script to tmp
+  template:
+    # src: replicaset_init.j2
+    # dest: /tmp/replicaset_init.js
+    src: replicaSet.j2
+    dest: /tmp/replicaSet.j2
+
+- name: Execute the initialization script and add all replicants
+  #shell: mongo localhost:{{ item.port }}/admin /tmp/replicaSet.j2
+  shell: mongosh "mongodb://localhost:27017" /tmp/replicaSet.js
+  ignore_errors: yes
+  with_items: "{{ mongo_databases }}"
+
+# - name: play that sets a group to loop over
+#   vars:
+#     mongo_replicas: "{{ groups['secondary'] }}"
+#   template:
+#     src: replicaset_add_node.j2
+#     dest: /tmp/replicaset_add_node.js
+
+# - name: Execute the initialization script and add all replicants
+#   shell: mongo --host "{{ item.name }}-rs/localhost:{{ item.port }}" -u "{{ mongo_admin_user }}" -p "{{ mongo_admin_pass }}" --authenticationDatabase "admin" < /tmp/replicaset_add_node.js
+#   with_items: "{{ mongo_databases }}"
+
+  # ignore_errors: no
+
+
