@@ -1,4 +1,6 @@
 **Objectives**
+
+
 The homework emphases on the effectiveness of using Linux Containers through
 Docker. Docker is a great platform for easy to maintain, highly configurable
 instances. You can set it up and run it in milliseconds, and you can create globally
@@ -14,6 +16,8 @@ contain part of the data. You can select any open source distributed database th
 you like. Some examples are Cassandra, MongoDB, CouchDB, PostgreSQL etc.
 
 **Examples**
+
+
 A good tutorial on Dockerizing apps and databases (like CouchDb, PostgreSQL, Riak
 etc):
 https://docs.docker.com/samples/
@@ -25,6 +29,7 @@ how to create a Dockerfile. Once you have multiple instances you have connect
 them.
 
 **Learning Outcomes**
+
 The objective of this lab is for each student to learn
 1. how to use the Docker API to deploy Linux Container
 2. how work with Docker on top of a VM (vertical virtualization).
